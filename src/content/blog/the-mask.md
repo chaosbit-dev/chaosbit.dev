@@ -15,7 +15,7 @@ That voice grinds my gears to this day. (Cue Peter Griffin)
 
 ---
 
-### Learning by Following
+### The Lesson
 
 I didn't learn 'authentic' leadership by leading; I learned it by being on the receiving end of the fake version for years.
 
