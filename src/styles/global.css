@@ -11,7 +11,7 @@
 	--gray: 156, 163, 175;
 	--gray-light: 55, 65, 81;
 	--gray-dark: 209, 213, 219;
-	--gray-gradient: rgba(17, 24, 39, 0.5), #111827;
+	--gray-gradient: rgba(13, 17, 23, 0.5), #0d1117;
 	--box-shadow:
 		0 2px 6px rgba(0, 0, 0, 25%), 0 8px 24px rgba(0, 0, 0, 33%), 0 16px 32px
 		rgba(0, 0, 0, 33%);
@@ -35,7 +35,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: #111827;
+	background: #0d1117;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
