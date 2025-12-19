@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(dir:*)",
+      "Bash(robocopy:*)",
+      "Bash(powershell \"Get-ChildItem -Path zapping-zenith -Force | Move-Item -Destination . -Force\")",
+      "Bash(rm:*)",
+      "Bash(npm run dev:*)"
+    ]
+  }
+}
