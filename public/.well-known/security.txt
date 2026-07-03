@@ -1,0 +1,6 @@
+# Vulnerability disclosure for chaosbit.dev
+# https://www.rfc-editor.org/rfc/rfc9116
+Contact: mailto:security@chaosbit.dev
+Expires: 2027-07-03T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://chaosbit.dev/.well-known/security.txt
