@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HK-47 — Privacy Policy</title>
+<style>
+  :root{--bg:#0b0f14;--panel:#111820;--fg:#d6dee6;--muted:#8a97a3;--green:#10b981;--line:#1e2731}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 22px 96px}
+  .mono{font-family:Menlo,Consolas,"SF Mono",monospace}
+  header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:34px}
+  .tag{color:var(--green);letter-spacing:3px;font-size:13px;text-transform:uppercase}
+  h1{margin:.35em 0 .1em;font-size:30px;letter-spacing:.5px}
+  h2{margin:2.2em 0 .5em;font-size:19px;color:#eaf1f7}
+  h2::before{content:"▸ ";color:var(--green)}
+  .updated{color:var(--muted);font-size:14px}
+  a{color:var(--green)}
+  ul{padding-left:20px}li{margin:.3em 0}
+  .keep{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--green);
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .drop{background:var(--panel);border:1px solid var(--line);border-left:3px solid #b4433a;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  code{background:#0e151c;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:14px}
+  footer{margin-top:56px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:14px}
+</style>
+</head><body>
+<div class="wrap">
+  <header>
+    <div class="tag">HK-47 &middot; Discord bot</div>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: August 2, 2026</div>
+  </header>
+
+  <p><strong>HK-47</strong> is a self-hosted Discord bot that plays a character
+  from <em>Star Wars: Knights of the Old Republic</em> in a small, invite-only
+  family server. It is a personal/hobby project, not a commercial service.</p>
+
+  <div class="drop">
+    <strong>Read this part.</strong> Unlike most bots of this size, HK-47
+    <strong>reads the text of messages</strong> in the channels it is configured
+    for, and <strong>sends that text to a large language model</strong> in order
+    to write a reply. Depending on availability, that model runs either on the
+    operator's own hardware or on <strong>Anthropic's API</strong> — meaning your
+    message text can leave the operator's network. If you would rather that not
+    happen, do not type in the channels HK-47 is active in.
+  </div>
+
+  <h2>What HK-47 processes</h2>
+  <ul>
+    <li><strong>Message content.</strong> In allowlisted channels only. Your
+    message is used to generate one reply and is <strong>not stored</strong>
+    afterwards. It may appear briefly in operational logs for debugging.</li>
+    <li><strong>Discord user IDs and display names.</strong> Stored on the
+    operator's own disk. The ID is used to recognise you across the game server
+    and Discord, and as a key for reply rate-limits and mention throttling; the
+    display name is cached so the bot can refer to you by name.</li>
+    <li><strong>A short description of known players.</strong> The operator
+    writes a one-line, in-character opinion for each known person (this is the
+    joke), plus factual relationships such as "sibling of". These are held in
+    the bot's configuration and included in the text sent to the model.</li>
+    <li><strong>Game server activity.</strong> Join and leave events from a
+    private Palworld server, used to announce them in character.</li>
+  </ul>
+
+  <h2>Where your message text goes</h2>
+  <p>To generate a reply, the bot sends the message text, the speaker's display
+  name, and the player descriptions above to a language model. It tries a model
+  running on the operator's own hardware first. If that is unavailable it falls
+  back to <a href="https://www.anthropic.com/legal/privacy">Anthropic's API</a>,
+  which is a third party with its own privacy policy. No other third parties
+  receive your data.</p>
+
+  <h2>What HK-47 does NOT do</h2>
+  <div class="keep">
+    <ul>
+      <li>Does <strong>not</strong> retain message content after replying, or
+      build a searchable history of what you said.</li>
+      <li>Does <strong>not</strong> read channels it has not been explicitly
+      configured for, or direct messages.</li>
+      <li>Does <strong>not</strong> collect member lists, presence, email,
+      payment, or location data.</li>
+      <li>Does <strong>not</strong> use advertising, analytics, or third-party
+      trackers, and <strong>never sells or rents</strong> any data.</li>
+      <li>Does <strong>not</strong> train any model on your messages. They are
+      sent for inference only.</li>
+    </ul>
+  </div>
+
+  <h2>Where it runs</h2>
+  <p>HK-47 runs on the operator's self-hosted home infrastructure and
+  communicates with Discord's API to function. Stored data (IDs, cached display
+  names) lives on that hardware and is not backed up to any third party.</p>
+
+  <h2>Retention</h2>
+  <p>Message text: not retained. Discord IDs and cached display names: kept for
+  as long as the bot is configured to know you, and removable on request.
+  Operational logs: short-lived, and rotated out by the host.</p>
+
+  <h2>Your choices</h2>
+  <p>You can stop all data processing by not typing in the channels HK-47 is
+  active in, leaving the server, or contacting the operator to have your ID and
+  description removed from its configuration.</p>
+
+  <h2>Children</h2>
+  <p>The bot's in-character output is written for an adult audience and is not
+  directed at children.</p>
+
+  <h2>Changes &amp; contact</h2>
+  <p>This policy may be updated; the "last updated" date above will change
+  accordingly. Questions or requests:
+  <a href="mailto:brandon@chaosbit.dev">brandon@chaosbit.dev</a>.</p>
+
+  <footer class="mono">HK-47 &middot; operated by chaosbit.dev &middot; self-hosted, no data resale.</footer>
+</div>
+</body>
+</html>
