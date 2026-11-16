@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'ChaosBit';
 export const SITE_DESCRIPTION = 'Notes from the messy middle of engineering leadership.';
+export const SITE_TAGLINE = 'Small, sharp tools from the messy middle of engineering.';
