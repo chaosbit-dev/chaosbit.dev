@@ -7,9 +7,10 @@ import HeaderLink from './HeaderLink.astro';
 	<nav>
 		<h2><a href="/"><img src="/chaosbit-logo.gif" alt="ChaosBit" class="logo" /></a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/" class="home-link">Home</HeaderLink>
 			<HeaderLink href="/#projects">Projects</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 	</nav>
 </header>
@@ -33,6 +34,10 @@ import HeaderLink from './HeaderLink.astro';
 		height: 40px;
 		width: auto;
 		display: block;
+		flex-shrink: 0;
+	}
+	h2 {
+		flex-shrink: 0;
 	}
 	nav {
 		display: flex;
@@ -66,6 +71,25 @@ import HeaderLink from './HeaderLink.astro';
 	@media (max-width: 720px) {
 		.internal-links {
 			gap: 0.5em;
+		}
+	}
+	/* On phones the logo already links home; dropping "Home" keeps the logo from squashing. */
+	@media (max-width: 480px) {
+		nav {
+			flex-wrap: wrap;
+			row-gap: 0.25em;
+		}
+		.logo {
+			height: 28px;
+		}
+		.internal-links {
+			gap: 0;
+		}
+		nav a {
+			padding: 0.5em 0.4em;
+		}
+		.internal-links :global(.home-link) {
+			display: none;
 		}
 	}
 </style>
