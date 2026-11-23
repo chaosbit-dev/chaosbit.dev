@@ -29,7 +29,7 @@ npm run dev        # http://localhost:4321, hot reload
 | `npm run dev`          | Dev server on `localhost:4321`                 |
 | `npm run build`        | Production build to `./dist/`                  |
 | `npm run preview`      | Serve the production build locally             |
-| `npm run astro -- ...` | Any Astro CLI command (`astro check`, `astro add`) |
+| `npm run astro -- ...` | Any Astro CLI command (`astro add`, `astro info`) |
 
 Run `npm run build` before you push. A bad frontmatter field fails the build here
 before it fails on Vercel.
@@ -52,13 +52,14 @@ public/               # served as-is: logo, favicon, OG image, fonts, security.t
 
 ## Add a post
 
-Drop a file in `src/content/blog/`. The filename is the slug, so
-`src/content/blog/calibrated-defiance.md` is served at `/blog/calibrated-defiance/`.
+Drop a file in `src/content/blog/`. The filename becomes the slug (lowercased and
+hyphenated), so `src/content/blog/calibrated-defiance.md` is served at
+`/blog/calibrated-defiance/`. Stick to `lowercase-hyphen.md` and there are no surprises.
 
 ```markdown
 ---
 title: 'Post Title'
-description: 'One sentence. Shows on the index, in RSS, and in link previews.'
+description: 'One sentence. Shows on the home page, in RSS, and in link previews.'
 pubDate: 'Nov 23 2026'
 updatedDate: 'Dec 01 2026'   # optional
 heroImage: './hero.png'      # optional, path relative to the post
@@ -80,7 +81,8 @@ Vercel's GitHub integration does it. There is no workflow in this repo and nothi
 run by hand.
 
 - **Push or merge to `master`**: production build, live at chaosbit.dev.
-- **Open a pull request**: preview deployment. Its URL shows up in the PR's checks.
+- **Push any other branch or open a PR**: preview deployment. On a PR, the Vercel bot
+  comments the preview URL.
 
 DNS is on Cloudflare and points at Vercel.
 
@@ -90,5 +92,6 @@ There is no license file, so nothing here is licensed for reuse: the posts and t
 are © Brandon Luttrell, all rights reserved (as the site footer says). The projects linked
 from the site carry their own licenses in their own repos.
 
-The theme started life as Astro's blog template, which is based on
-[Bear Blog](https://github.com/HermanMartinus/bearblog/).
+The theme started life as Astro's MIT-licensed blog template, which is based on
+[Bear Blog](https://github.com/HermanMartinus/bearblog/). Code that came from that
+template stays under its MIT license.
