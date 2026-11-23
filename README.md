@@ -1,62 +1,97 @@
-# Astro Starter Kit: Blog
+<p align="center">
+  <a href="https://chaosbit.dev"><img src="public/chaosbit-logo.gif" alt="~/chaosbit → 0x43_ — engineering leadership from the terminal" width="720"></a>
+</p>
+
+# chaosbit.dev
+
+```console
+$ cat README.md
+```
+
+The source for **[chaosbit.dev](https://chaosbit.dev)**: notes from the messy middle of
+engineering leadership, plus a landing page for the open-source projects under
+[chaosbit-dev](https://github.com/chaosbit-dev).
+
+It's a static [Astro](https://astro.build) site. Posts are Markdown files in this repo. No
+CMS and no database. Vercel builds it on every push.
+
+## Run it locally
+
+You need Node `18.20.8`, `^20.3.0` or `>=22` (Astro 5's floor) and npm.
 
 ```sh
-npm create astro@latest -- --template blog
+npm install
+npm run dev        # http://localhost:4321, hot reload
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+| Command                | What it does                                   |
+| :--------------------- | :--------------------------------------------- |
+| `npm run dev`          | Dev server on `localhost:4321`                 |
+| `npm run build`        | Production build to `./dist/`                  |
+| `npm run preview`      | Serve the production build locally             |
+| `npm run astro -- ...` | Any Astro CLI command (`astro add`, `astro info`) |
 
-Features:
+Run `npm run build` before you push. A bad frontmatter field fails the build here
+before it fails on Vercel.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Layout
 
 ```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+src/
+├── content/blog/     # the posts: one .md or .mdx file each
+├── content.config.ts # frontmatter schema for posts
+├── data/projects.ts  # project cards on the landing page (hand-maintained)
+├── consts.ts         # site title, description, tagline
+├── pages/            # routes: /, /about, /blog, /blog/<slug>, /rss.xml
+├── layouts/          # BlogPost.astro wraps every post
+├── components/       # header, footer, <head> tags
+└── styles/global.css # dark theme, accent #10B981
+public/               # served as-is: logo, favicon, OG image, fonts, security.txt,
+                      # and a few standalone static pages
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Add a post
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Drop a file in `src/content/blog/`. The filename becomes the slug (lowercased and
+hyphenated), so `src/content/blog/calibrated-defiance.md` is served at
+`/blog/calibrated-defiance/`. Stick to `lowercase-hyphen.md` and there are no surprises.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+```markdown
+---
+title: 'Post Title'
+description: 'One sentence. Shows on the home page, in RSS, and in link previews.'
+pubDate: 'Nov 23 2026'
+updatedDate: 'Dec 01 2026'   # optional
+heroImage: './hero.png'      # optional, path relative to the post
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+Body in Markdown, or MDX if the file ends in .mdx.
+```
 
-## 🧞 Commands
+The schema in `src/content.config.ts` checks the frontmatter: `title`, `description` and
+`pubDate` are required. There is no draft flag. A file in `src/content/blog/` on `master`
+is published, so keep drafts on a branch.
 
-All commands are run from the root of the project, from a terminal:
+The home page shows the three newest posts, `/blog` lists all of them, and the RSS feed
+and sitemap pick new posts up on their own.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Deploy
 
-## 👀 Want to learn more?
+Vercel's GitHub integration does it. There is no workflow in this repo and nothing to
+run by hand.
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Push or merge to `master`**: production build, live at chaosbit.dev.
+- **Push any other branch or open a PR**: preview deployment. On a PR, the Vercel bot
+  comments the preview URL.
 
-## Credit
+DNS is on Cloudflare and points at Vercel.
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+## License
+
+There is no license file, so nothing here is licensed for reuse: the posts and the site
+are © Brandon Luttrell, all rights reserved (as the site footer says). The projects linked
+from the site carry their own licenses in their own repos.
+
+The theme started life as Astro's MIT-licensed blog template, which is based on
+[Bear Blog](https://github.com/HermanMartinus/bearblog/). Code that came from that
+template stays under its MIT license.
