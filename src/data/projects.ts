@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
 		name: 'homeassistant-mcp',
 		repo: 'https://github.com/chaosbit-dev/homeassistant-mcp',
 		summary:
-			'An MCP server for Home Assistant. Read states, history and cameras, control devices and manage the registry, with every write behind a fail-closed gate.',
+			'An MCP server for Home Assistant. Read states, history and cameras, control devices, and manage the registry behind fail-closed write gates.',
 		tags: ['MCP', 'Python', 'Home Assistant'],
 	},
 ];
