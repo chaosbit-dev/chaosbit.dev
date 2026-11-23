@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     { "source": "/blog", "destination": "/", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/", "permanent": true },
+    { "source": "/blog/:path(.*)", "destination": "/", "permanent": true },
     { "source": "/rss.xml", "destination": "/", "permanent": true }
   ]
 }
