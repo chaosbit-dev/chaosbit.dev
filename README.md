@@ -26,7 +26,7 @@ page (`vercel.json`).
 
 ## Run it locally
 
-You need Node `18.20.8`, `^20.3.0` or `>=22` (Astro 5's floor) and npm.
+You need Node `>=22.12.0` (Astro 7's floor; Vercel builds on 24.x) and npm.
 
 ```sh
 npm install
