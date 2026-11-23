@@ -4,6 +4,12 @@
 
 # chaosbit.dev
 
+[![License: all rights reserved](https://img.shields.io/badge/license-all%20rights%20reserved-10B981)](#license)
+[![Site](https://img.shields.io/website?url=https%3A%2F%2Fchaosbit.dev&label=chaosbit.dev)](https://chaosbit.dev)
+[![Astro](https://img.shields.io/github/package-json/dependency-version/chaosbit-dev/chaosbit.dev/astro?branch=master)](package.json)
+[![RSS](https://img.shields.io/badge/RSS-feed-10B981?logo=rss&logoColor=white)](https://chaosbit.dev/rss.xml)
+[![Last commit](https://img.shields.io/github/last-commit/chaosbit-dev/chaosbit.dev/master?label=last%20commit)](https://github.com/chaosbit-dev/chaosbit.dev/commits/master)
+
 ```console
 $ cat README.md
 ```
