@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://chaosbit.dev"><img src="public/chaosbit-logo.gif" alt="~/chaosbit → 0x43_ — engineering leadership from the terminal" width="720"></a>
+  <a href="https://chaosbit.dev"><img src="public/chaosbit-logo.gif" alt="chaosbit" width="720"></a>
 </p>
 
 # chaosbit.dev
@@ -7,19 +7,22 @@
 [![License: all rights reserved](https://img.shields.io/badge/license-all%20rights%20reserved-10B981)](#license)
 [![Site](https://img.shields.io/website?url=https%3A%2F%2Fchaosbit.dev&label=chaosbit.dev)](https://chaosbit.dev)
 [![Astro](https://img.shields.io/github/package-json/dependency-version/chaosbit-dev/chaosbit.dev/astro?branch=master)](package.json)
-[![RSS](https://img.shields.io/badge/RSS-feed-10B981?logo=rss&logoColor=white)](https://chaosbit.dev/rss.xml)
 [![Last commit](https://img.shields.io/github/last-commit/chaosbit-dev/chaosbit.dev/master?label=last%20commit)](https://github.com/chaosbit-dev/chaosbit.dev/commits/master)
 
 ```console
 $ cat README.md
 ```
 
-The source for **[chaosbit.dev](https://chaosbit.dev)**: notes from the messy middle of
-engineering leadership, plus a landing page for the open-source projects under
-[chaosbit-dev](https://github.com/chaosbit-dev).
+The source for **[chaosbit.dev](https://chaosbit.dev)**: a landing page for the
+open-source projects under [chaosbit-dev](https://github.com/chaosbit-dev), plus an about
+page.
 
-It's a static [Astro](https://astro.build) site. Posts are Markdown files in this repo. No
-CMS and no database. Vercel builds it on every push.
+It's a static [Astro](https://astro.build) site with no CMS and no database. Vercel builds
+it on every push.
+
+The site used to carry a blog. It was retired in November 2026: the posts are still in
+this repo's git history, and the old `/blog/...` and `/rss.xml` URLs redirect to the home
+page (`vercel.json`).
 
 ## Run it locally
 
@@ -37,49 +40,26 @@ npm run dev        # http://localhost:4321, hot reload
 | `npm run preview`      | Serve the production build locally             |
 | `npm run astro -- ...` | Any Astro CLI command (`astro add`, `astro info`) |
 
-Run `npm run build` before you push. A bad frontmatter field fails the build here
-before it fails on Vercel.
+Run `npm run build` before you push, so a broken page fails here before it fails on Vercel.
 
 ## Layout
 
 ```text
 src/
-├── content/blog/     # the posts: one .md or .mdx file each
-├── content.config.ts # frontmatter schema for posts
 ├── data/projects.ts  # project cards on the landing page (hand-maintained)
-├── consts.ts         # site title, description, tagline
-├── pages/            # routes: /, /about, /blog, /blog/<slug>, /rss.xml
-├── layouts/          # BlogPost.astro wraps every post
+├── consts.ts         # site title and tagline
+├── pages/            # routes: / and /about
 ├── components/       # header, footer, <head> tags
 └── styles/global.css # dark theme, accent #10B981
 public/               # served as-is: logo, favicon, OG image, fonts, security.txt,
                       # and a few standalone static pages
+vercel.json           # redirects from the retired blog URLs
 ```
 
-## Add a post
+## Add a project
 
-Drop a file in `src/content/blog/`. The filename becomes the slug (lowercased and
-hyphenated), so `src/content/blog/calibrated-defiance.md` is served at
-`/blog/calibrated-defiance/`. Stick to `lowercase-hyphen.md` and there are no surprises.
-
-```markdown
----
-title: 'Post Title'
-description: 'One sentence. Shows on the home page, in RSS, and in link previews.'
-pubDate: 'Nov 23 2026'
-updatedDate: 'Dec 01 2026'   # optional
-heroImage: './hero.png'      # optional, path relative to the post
----
-
-Body in Markdown, or MDX if the file ends in .mdx.
-```
-
-The schema in `src/content.config.ts` checks the frontmatter: `title`, `description` and
-`pubDate` are required. There is no draft flag. A file in `src/content/blog/` on `master`
-is published, so keep drafts on a branch.
-
-The home page shows the three newest posts, `/blog` lists all of them, and the RSS feed
-and sitemap pick new posts up on their own.
+Add an entry to `PROJECTS` in `src/data/projects.ts` when its repo goes public. Each one
+is a card on the home page: name, repo URL, a one-line summary and a few tags.
 
 ## Deploy
 
@@ -94,9 +74,10 @@ DNS is on Cloudflare and points at Vercel.
 
 ## License
 
-There is no license file, so nothing here is licensed for reuse: the posts and the site
-are © Brandon Luttrell, all rights reserved (as the site footer says). The projects linked
-from the site carry their own licenses in their own repos.
+There is no license file, so nothing here is licensed for reuse: the site and its
+content, including the retired posts in history, are © Brandon Luttrell, all rights
+reserved (as the site footer says). The projects linked from the site carry their own
+licenses in their own repos.
 
 The theme started life as Astro's MIT-licensed blog template, which is based on
 [Bear Blog](https://github.com/HermanMartinus/bearblog/). Code that came from that
