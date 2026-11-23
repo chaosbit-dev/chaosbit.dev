@@ -23,6 +23,20 @@ export const PROJECTS: Project[] = [
 			"An MCP server for Paperless-ngx. Find documents and read their extracted fields without ever returning document text, acting as each caller's own Paperless user.",
 		tags: ['MCP', 'Python', 'Paperless-ngx'],
 	},
+	{
+		name: 'obsidian-git-mcp',
+		repo: 'https://github.com/chaosbit-dev/obsidian-git-mcp',
+		summary:
+			'An MCP server for an Obsidian vault kept in git. Search, read, edit, move and delete notes the way Obsidian would, keeping links intact and making one commit per change.',
+		tags: ['MCP', 'Python', 'Obsidian'],
+	},
+	{
+		name: 'homeassistant-mcp',
+		repo: 'https://github.com/chaosbit-dev/homeassistant-mcp',
+		summary:
+			'An MCP server for Home Assistant. Read states, history and cameras, control devices and manage the registry, with every write behind a fail-closed gate.',
+		tags: ['MCP', 'Python', 'Home Assistant'],
+	},
 ];
 
 export const ORG_URL = 'https://github.com/chaosbit-dev';
